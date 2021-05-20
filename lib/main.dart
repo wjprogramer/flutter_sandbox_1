@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sandbox_1/pages/home_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_sandbox_1/modules/app/app_module.dart';
+import 'package:flutter_sandbox_1/modules/app/app_widget.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Sandbox',
-      home: HomePage()
-    );
-  }
+  runApp(
+    ModularApp(
+      module: AppModule(),
+      child: AppWidget()
+    )
+  );
 }
