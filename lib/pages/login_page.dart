@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           TextButton(
             onPressed: () {
-              Modular.to.pushNamed('/home');
+              Modular.to.pushNamed('/home', arguments: '"I\'m data for home module"');
             },
             child: Text('Home'),
           ),
