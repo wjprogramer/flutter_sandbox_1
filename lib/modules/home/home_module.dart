@@ -6,6 +6,7 @@ import 'package:flutter_sandbox_1/pages/event_page.dart';
 import 'package:flutter_sandbox_1/pages/product_details_page.dart';
 import 'package:flutter_sandbox_1/pages/product_page.dart';
 import 'package:flutter_sandbox_1/pages/product_rating_page.dart';
+import 'package:flutter_sandbox_1/route_transitions/my_custom_transition.dart';
 
 import 'home_widget.dart';
 
@@ -28,6 +29,8 @@ class HomeModule extends Module {
     ChildRoute(
       '/product/:id/rating',
       child: (_, args) => ProductRatingPage(id: args.params['id']),
+      transition: TransitionType.custom,
+      customTransition: myCustomTransition,
     ),
     ChildRoute('/product/model', child: (_, args) => ProductDetailsPage(
       productModel: args.data,
