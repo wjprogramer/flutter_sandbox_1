@@ -15,7 +15,13 @@ class HomeWidget extends StatelessWidget {
               Modular.to.pushNamed('/home/product/1');
             },
             child: Text('Product 1'),
-          )
+          ),
+          TextButton(
+            onPressed: () {
+              Modular.to.pushNamed('/home/product/1/rating');
+            },
+            child: Text('Product 1 Rating'),
+          ),
         ],
       ),
     );
