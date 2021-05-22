@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_sandbox_1/blocs/app/app_bloc.dart';
 import 'package:flutter_sandbox_1/models/product_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeWidget extends StatefulWidget {
   @override
@@ -9,6 +11,12 @@ class HomeWidget extends StatefulWidget {
 
 class _HomeWidgetState extends State<HomeWidget> {
   String _name = '';
+
+  /// Retrieving your injected dependencies in the view
+  // 1. You can use the object Inject to retrieve..
+  final appBloc = Modular.get<AppBloc>();
+  // 2. or for no-ready AsyncBinds
+  final share = Modular.getAsync<SharedPreferences>();
 
   @override
   Widget build(BuildContext context) {
