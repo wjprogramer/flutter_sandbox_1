@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_sandbox_1/modules/home/home_guard.dart';
 import 'package:flutter_sandbox_1/modules/home/home_module.dart';
 import 'package:flutter_sandbox_1/pages/home_page.dart';
 import 'package:flutter_sandbox_1/pages/login_page.dart';
@@ -15,7 +16,13 @@ class AppModule extends Module {
     // Simple route using the ChildRoute
     ChildRoute('/', child: (_, __) => HomePage()),
     ChildRoute('/login', child: (_, __) => LoginPage()),
-    ModuleRoute('/home', module: HomeModule()),
+    ModuleRoute(
+      '/home',
+      module: HomeModule(),
+      guards: [ HomeGuard() ],
+      // Add a routing route if `RouteGuard` validation fails by adding the `guardedRoute` property:
+      guardedRoute: '/login',
+    ),
   ];
 
 }

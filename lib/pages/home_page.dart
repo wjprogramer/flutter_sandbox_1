@@ -21,7 +21,13 @@ class _HomePageState extends State<HomePage> {
               Modular.to.pushNamed('/login');
             },
             child: Text('Login'),
-          )
+          ),
+          TextButton(
+            onPressed: () {
+              Modular.to.pushNamed('/home');
+            },
+            child: Text('Go home without auth'),
+          ),
         ],
       ),
     );
