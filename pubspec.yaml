@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   flutter_bloc: ^7.0.0
   equatable: ^2.0.0
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   # MIT
