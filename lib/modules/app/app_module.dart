@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_sandbox_1/blocs/app/app_bloc.dart';
 import 'package:flutter_sandbox_1/models/product_model.dart';
+import 'package:flutter_sandbox_1/modules/demo/demo_module.dart';
 import 'package:flutter_sandbox_1/modules/home/home_guard.dart';
 import 'package:flutter_sandbox_1/modules/home/home_module.dart';
 import 'package:flutter_sandbox_1/pages/home_page.dart';
@@ -33,6 +34,7 @@ class AppModule extends Module {
     // Simple route using the ChildRoute
     ChildRoute('/', child: (_, __) => HomePage()),
     ChildRoute('/login', child: (_, __) => LoginPage()),
+    ModuleRoute('/demo', module: DemoModule()),
     ModuleRoute(
       '/home',
       module: HomeModule(),
