@@ -22,6 +22,12 @@ class HomeWidget extends StatelessWidget {
             },
             child: Text('Product 1 Rating'),
           ),
+          TextButton(
+            onPressed: () {
+              Modular.to.navigate('/home/product/1/rating');
+            },
+            child: Text('Product 1 Rating by navigate'),
+          ),
         ],
       ),
     );
