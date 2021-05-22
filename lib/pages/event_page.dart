@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class EventPage extends StatefulWidget {
   @override
@@ -77,7 +78,7 @@ class _EventPageState extends State<EventPage> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             final participantName = _nameController.text;
-                            print(participantName);
+                            Modular.to.pop(participantName);
                           }
                         },
                         child: Text('Join Event'),

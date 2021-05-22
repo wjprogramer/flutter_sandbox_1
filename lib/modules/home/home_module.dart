@@ -2,6 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_sandbox_1/blocs/home/home_bloc.dart';
 import 'package:flutter_sandbox_1/modules/home/home_controller.dart';
 import 'package:flutter_sandbox_1/modules/list/list_widget.dart';
+import 'package:flutter_sandbox_1/pages/event_page.dart';
 import 'package:flutter_sandbox_1/pages/product_details_page.dart';
 import 'package:flutter_sandbox_1/pages/product_page.dart';
 import 'package:flutter_sandbox_1/pages/product_rating_page.dart';
@@ -30,5 +31,6 @@ class HomeModule extends Module {
     ChildRoute('/product/model', child: (_, args) => ProductDetailsPage(
       productModel: args.data,
     )),
+    ChildRoute<String>('/event', child: (_, __) => EventPage()),
   ];
 }

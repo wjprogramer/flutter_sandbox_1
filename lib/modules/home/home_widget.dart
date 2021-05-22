@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_sandbox_1/models/product_model.dart';
 
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends StatefulWidget {
+  @override
+  _HomeWidgetState createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
+  String _name = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +47,21 @@ class HomeWidget extends StatelessWidget {
             },
             child: Text('Product Details',),
           ),
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(child: Text('Your name is "${_name.isEmpty ? '-' : _name}" from event page popping')),
+          ),
+          TextButton(
+            onPressed: () async {
+              final name = await Modular.to.pushNamed<String>('/home/event');
+              setState(() {
+                _name = name ?? '';
+              });
+            },
+            child: Text('Event',),
+          ),
+          Divider(),
         ],
       ),
     );
