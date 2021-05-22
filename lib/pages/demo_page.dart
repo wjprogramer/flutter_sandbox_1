@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_sandbox_1/demo_collection/cubit_demo/cubit_demo_page.dart';
 
-class DemoPage extends StatelessWidget {
+class DemoPage extends StatefulWidget {
+  @override
+  _DemoPageState createState() => _DemoPageState();
+}
+
+class _DemoPageState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,16 +15,26 @@ class DemoPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-
+          _subTitle('PKG: flutter_bloc'),
+          _button('Cubit', CubitDemoPage()),
         ],
       ),
     );
   }
 
-  Widget _button(String text, String routeName) {
+  Widget _subTitle(String text) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 16, bottom: 8),
+        child: Text(text),
+      ),
+    );
+  }
+
+  Widget _button(String text, Widget page) {
     return TextButton(
       onPressed: () {
-        Modular.to.pushNamed(routeName);
+        Navigator.push(context, MaterialPageRoute(builder: (_) => page));
       },
       child: Text(text),
     );
