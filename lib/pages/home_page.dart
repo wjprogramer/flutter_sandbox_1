@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -12,6 +13,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Sandbox'),
+      ),
+      body: ListView(
+        children: [
+          TextButton(
+            onPressed: () {
+              Modular.to.pushNamed('/login');
+            },
+            child: Text('Login'),
+          )
+        ],
       ),
     );
   }
