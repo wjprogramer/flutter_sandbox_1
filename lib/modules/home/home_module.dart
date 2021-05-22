@@ -23,6 +23,7 @@ class HomeModule extends Module {
     ChildRoute(
       '/product/:id',
       child: (_, args) => ProductPage(id: args.params['id']),
+      transition: TransitionType.fadeIn,
     ),
     ChildRoute(
       '/product/:id/rating',
