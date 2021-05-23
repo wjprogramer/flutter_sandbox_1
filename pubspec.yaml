@@ -40,6 +40,8 @@ dependencies:
   sqflite: ^2.0.0+3
 
   # BSD
+  # Android iOS Linux macOS web Windows
+  intl: ^0.17.0
   # Android iOS Linux macOS Windows
   path_provider: ^2.0.1
 

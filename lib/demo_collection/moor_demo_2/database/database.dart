@@ -42,14 +42,21 @@ class EntryWithCategory {
   tables: [Todos, Categories],
   queries: {
     '_resetCategory': 'UPDATE todos SET category = NULL WHERE category = ?',
+    // '_categoriesWithCount': '''
+    //  SELECT
+    //    c.id,
+    //    c.desc,
+    //    (SELECT COUNT(*) FROM todos WHERE category = c.id) AS amount
+    //  FROM categories c
+    //  UNION ALL
+    //  SELECT null, null, (SELECT COUNT(*) FROM todos WHERE category IS NULL)
+    //  ''',
     '_categoriesWithCount': '''
      SELECT
        c.id,
        c.desc,
        (SELECT COUNT(*) FROM todos WHERE category = c.id) AS amount
      FROM categories c
-     UNION ALL
-     SELECT null, null, (SELECT COUNT(*) FROM todos WHERE category IS NULL)
      ''',
   },
 )
@@ -113,8 +120,9 @@ class MyDatabase extends _$MyDatabase {
     // the _categoriesWithCount method has been generated automatically based
     // on the query declared in the @UseMoor annotation
     return _categoriesWithCount().map((row) {
+      // ignore: unnecessary_null_comparison
       final hasId = row.id != null;
-      final category = hasId ? Category(id: row.id!, description: row.desc!) : null;
+      final category = hasId ? Category(id: row.id, description: row.desc) : null;
 
       return CategoryWithCount(category, row.amount);
     }).watch();
@@ -161,6 +169,10 @@ class MyDatabase extends _$MyDatabase {
   Future<int> createCategory(String description) {
     return into(categories)
         .insert(CategoriesCompanion(description: Value(description)));
+  }
+
+  Future updateCategory(Category category) {
+    return update(categories).replace(category);
   }
 
   Future deleteCategory(Category category) {
