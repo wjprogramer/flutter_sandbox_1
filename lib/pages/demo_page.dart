@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox_1/demo_collection/cubit_demo/cubit_demo_page.dart';
 import 'package:flutter_sandbox_1/demo_collection/moor_demo/moor_demo_page.dart';
+import 'package:flutter_sandbox_1/demo_collection/moor_demo_2/moor_demo_page_2.dart';
+import 'package:flutter_sandbox_1/utilities/component_utility.dart';
 
 class DemoPage extends StatefulWidget {
   @override
@@ -20,7 +22,8 @@ class _DemoPageState extends State<DemoPage> {
           _button('Cubit', CubitDemoPage()),
           Divider(),
           _subTitle('PKG: moor'),
-          _button('Simple', MoorDemoPage()),
+          _button('Simple (Commented)', MoorDemoPage()),
+          _button('Simple', MoorDemoPage2()),
         ],
       ),
     );
@@ -36,11 +39,6 @@ class _DemoPageState extends State<DemoPage> {
   }
 
   Widget _button(String text, Widget page) {
-    return TextButton(
-      onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => page));
-      },
-      child: Text(text),
-    );
+    return ComponentUtility.button(context, text, page: page);
   }
 }
