@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox_1/demo_collection/cubit_demo/cubit_demo_page.dart';
+import 'package:flutter_sandbox_1/demo_collection/moor_demo/moor_demo_page.dart';
 
 class DemoPage extends StatefulWidget {
   @override
@@ -17,6 +18,9 @@ class _DemoPageState extends State<DemoPage> {
         children: [
           _subTitle('PKG: flutter_bloc'),
           _button('Cubit', CubitDemoPage()),
+          Divider(),
+          _subTitle('PKG: moor'),
+          _button('Simple', MoorDemoPage()),
         ],
       ),
     );

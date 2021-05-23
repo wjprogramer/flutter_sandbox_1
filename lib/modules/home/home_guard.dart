@@ -19,4 +19,7 @@ class HomeGuard implements RouteGuard {
       return false;
     }
   }
+
+  @override
+  String? get guardedRoute => null;
 }
